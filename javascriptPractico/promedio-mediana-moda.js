@@ -1,3 +1,7 @@
+//PROMEDIO
+
+// Promedio = Media aritmetica : Consiste en sumar cada numero y dividirlo entre la cantidad de numeros que hay
+// Ejemplo: 50 + 30 + 60 = 26 / 3 = 40.67
 
 
 function calcularMediaAritmetica(lista){
@@ -17,6 +21,10 @@ function calcularMediaAritmetica(lista){
     return promedioLista;
 }
 
+//MEDIANA
+
+// Mediana: se ordena la lista de menor a mayor y se toma el de la mitad.
+// Ejemplo: 450, 500, 600 la mediana es el elemento del centro 500, los elementos de la lista dos pares se toma los dos del centro (se suma los dos elementos y se divide entre 2)
 
 function calcularMediana (listaMedianda){
     listaMedianda.sort();
@@ -48,3 +56,33 @@ function calcularMediana (listaMedianda){
     }
     return mediana;
 }
+
+//MODA
+
+// Moda: es el elemento que mas se repite en una lista
+//Ejemplo: 1, 10, 14, 3, 24, 14, 10, 35, 13, 14. La moda es 14 ya que es el numero que mas se repite.
+
+function calcularModa (lista) {
+    const listaCount = {};
+
+    lista.map (
+        function(elemento) {
+            if (listaCount[elemento]) {
+                listaCount[elemento] += 1;
+            } else {
+                listaCount[elemento] = 1;
+            }
+        }
+    );
+
+    const listaArray = Object.entries(listaCount).sort(
+        function (elementoA, elementoB){
+            return elementoA[1] - elementoB[1];
+        }
+    );
+
+    const moda = listaArray[listaArray.length -1];
+
+    return moda;
+}
+
