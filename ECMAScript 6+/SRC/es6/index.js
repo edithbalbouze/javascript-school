@@ -144,7 +144,7 @@ const calc = new calculator();
 console.log(calc.sum(2, 2));
 
 //MODULOS (Import, Export)
-import {hello} from './module';
+import {hello} from './module.js';
 
 hello();
 
