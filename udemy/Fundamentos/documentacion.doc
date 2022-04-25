@@ -1,0 +1,21 @@
+Variable: Es un contenedor de informacion que apunta a un lugar en memoria. Dicha informacion puede cambiar en el futuro.
+
+Que version de ECMAScript debo usar:
+    * ES5: Soportada en todos los navegadores
+    * ES6/ES2015, ES7/ES2016, ES8/ES2017: Soportados por la mayoria de navegadores modernos, pero no por todos los navegadores web, asi que muchas caracteristicas pueden ser implementadas con Polyfills
+
+Polyfill: Es un codigo que provee el funcionamiento de una nueva caracteristica de JavaScript (ES6), en versiones viejas como ES5.
+
+En JavaScript los parentesis indican que es una funcion o un metodo.
+
+Un METODO es una FUNCION que se encuentra dentro de un OBJETO.
+
+CONSOLE es el metodo y LOG es el objeto.
+
+El CONSOLE.LOG es un metodo que recibe varios argumentos. los argumentos se colocan dentro de los parentesis ()
+
+console.log();       -> 
+console.warn();      ->
+console.error();     ->
+console.info();      ->
+console.table();     -> sirve para imprimir muchas variables y mas si tiene un orden logico. Este puede recibir un arreglo [] o un Objeto {}
