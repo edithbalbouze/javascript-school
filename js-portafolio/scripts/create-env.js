@@ -1,0 +1,1 @@
+const fs = require('./.env', `API=${process.env.API}\n`)
