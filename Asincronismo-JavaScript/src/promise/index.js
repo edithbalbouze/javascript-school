@@ -1,4 +1,4 @@
-// Aqui la promesa se ejecuta al cargar el archivoconst somethingWillHappen = () => {
+// Aqui la promesa se ejecuta al cargar el archivo const somethingWillHappen = () => {
     
 const somethingWillHappen = () => {
     return new Promise((resolve, reject) => {

@@ -406,3 +406,35 @@ Otra manera es mandar la opción mediante parámetros de consola en package.json
 }
 Vale la pena recordar que si aplicamos en modo producción se tomara más tiempo porque se optimizaran los recursos
 Por ello en modo desarrollo se salta ese paso y es más rápido la compila
+
+
+VIDEO 20 WEBPACK BUNDLE ANALYZER
+
+Apuntes
+Cuando tenemos un proyecto es buena idea poder revisar su impacto en tamaño por ese motivo webpack nos ofrece un paquete para poder verificar y analizar el tamaño del bundle final
+Para instalar corremos el comando
+
+TERMINAL
+npm install -D webpack-bundle-analyzer
+
+VISUAL ESTUDIO CODE => WEBPACK.CONFIG.DEV.JS
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer');
+
+new BundleAnalyzerPlugi(),
+
+Si deseamos hacer un análisis debemos correr los siguientes comandos
+npx webpack --profile --json > stats.json
+npx webpack-bundle-analyzer stats.json
+
+
+VIDEO 21 WEBPACK DEVTOOLS
+Ideas/conceptos claves
+source map es un mapeo que se realiza entre el código original y el código transformado, tanto para archivos JavaScript como para archivos CSS. De esta forma podremos debuggear tranquilamente nuestro código.
+
+Apuntes
+Con las devtools de webpack te permite crear un mapa de tu proyecto y con el podemos
+Leer a detalle
+Analizar particularidades de lo que está compilando nuestro proyecto
+Para comenzar debemos ir a webpack.config.js y agregar la propiedad devtool: "source-map"
+Esta opción genera un source map el cual posteriormente chrome lo lee y te permite depurar de una mejor forma
+Responder
