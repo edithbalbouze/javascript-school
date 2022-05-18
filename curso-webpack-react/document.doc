@@ -1,0 +1,144 @@
+VIDEO 22 INSTALACION Y CONFIGURACION DE REACT
+
+Instalación y configuración de React
+Inicializar NPM
+Instalar React con npm como dependencia:
+"npm i react react-dom -S
+Estructura de carpetas:
+[](http 😕/i.prntscr.com/rs6Oai5VQ-2KDjY4bNWdbQ.png)
+Index.js
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './components/App';
+
+ReactDOM.render(<App />, document.getElementById('app'));
+App.jsx
+Los archivos con extensión de react (Html dentro de Javascript o JSX) siempre inician con mayúscula.
+import React from 'react';
+
+const App = () => <h1>Hello React!!</h1>
+
+export default App;
+Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
+
+
+
+
+
+VIDEO 23 CONFIGURACION DE WEBPACK 5 PARA REACT.JS
+// Para Webpack
+npm i -D webpack webpack-cli webpack-dev-server
+
+// Para Babel
+npm i @babel/core babel-loader @babel/preset-env @babel/preset-react -D
+
+
+
+
+
+VIDEO 24 CONFIGURACION DE PLUGINA Y LOADERS PARA REACT
+
+Ahora necesitamos el loader y el plugin para trabajar con HTML:
+
+TERMINAL
+npm install  html-loader html-webpack-plugin -D
+
+Primero necesitamos traer los recursos:
+
+WEBPACK.CONFIG.JS
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+Ahora tenemos que trabajar con ese loader, asi que agregaremos una nueva regla;
+
+{
+   test: /\.html$/,
+   use: [
+     {loader: 'html-loader'}
+       ]
+  }
+Ahora agregamos nuestro arreglo de plugins donde agregamos el html webpack plugin:
+
+plugins:[
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            filename: './index.html'
+        })
+    ],
+Tenemos que probar que todo funciona creando los scripts haciendo el build y el servidor local
+
+    "start": "webpack serve",
+    "build": "webpack --mode production"
+
+
+
+
+
+VIDEO 25 CONFIGURACION DE WEBPACK PARA CSS EN REACT
+
+En la terminar instalamos 
+
+TERMINAL
+npm install mini-css-extract-plugin css-loader style-loader sass sass-loader -D
+
+luego en el document WEBPACK.CONFIG.JS hacer las siguientes configuraciones
+
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+en rules:
+ {
+    test: /\.s[ac]ss$/,
+    use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+    ]
+}
+
+en plugin:
+new MiniCssExtractPlugin({
+    filename: '[name].css'
+})
+
+en src creamos una carpeta "style" y dentro de ella el documento "global.scss":
+$base-color: #c6538c;
+$color: rgba(black, 0.88);
+
+body {
+    background-color: $base-color;
+    color: $color;
+}
+
+en src => "index.js", agregar:
+import './style/global.scss';
+
+
+
+
+
+VIDEO 26 OPTIMIZACION DE WEBPACK PARA REACT
+
+En la terminal, instalamos:
+npm install css-minimizer-webpack-plugin terser-webpack-plugin clean-plugin -D
+
+Luego crear el documento WEBPACK.CONFIG.DEV.JS y copiarle y pegarle la informacion de WEBPACK.CONFIG.js.
+agregarls antes de module
+mode: 'development',
+
+y al documento WEBPACK.CONFIG.JS eliminarle la seccionde devServer.
+
+En documento WEBPACK.CONFIG.JS agregar la siguientes configuraciones:
+const CssMinimizerplugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const { cleanWebpackPlugin} = require('clean-webpack-plugin');
