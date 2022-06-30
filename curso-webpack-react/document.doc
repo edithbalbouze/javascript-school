@@ -142,3 +142,64 @@ En documento WEBPACK.CONFIG.JS agregar la siguientes configuraciones:
 const CssMinimizerplugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { cleanWebpackPlugin} = require('clean-webpack-plugin');
+
+
+
+- Webpack es un module bundler que nos permite trabajar con gran variedad de archivos en nuestros proyectos.
+
+- Los loaders que usamos para trabajar en Webpack con CSS son: css-loader y style-loader
+
+- Debemos usar expresiones regulares para definir la extensión de los archivos que afectarán nuestros loaders
+
+- El plugin que nos permite minificar nuestros estilos CSS es: MiniCssExtractPlugin
+
+- La función del source-map nos permite crear un mapa para encontrar las piezas de nuestro código por separado y hacer más fácilmente debugging.
+
+-Los Alias en Webpack sirven para identificar más fácilmente el "path" de los archivos con los que trabajamos en el proyecto.
+
+-La función de las variables de entorno es crear un espacio seguro para la configuración de nuestro proyecto que no queremos exponer en nuestro código.
+
+- Los loaders usamos para trabajar en Webpack con fuentes son: url-loader y file-loader
+
+- El comando de webpack-cli para ejecutar nuestro proyecto en modo de desarrollo es: webpack --mode development
+
+- El comando de webpack-cli para ejecutar nuestro proyecto en modo de producción es: webpack --mode production
+
+- La expresión regular para que Webpack transpile nuestros archivos .css y .styl con su loader correspondiente es: /\.css|.styl$/
+
+- L a propiedad del archivo de configuración de Webpack que guarda las opciones de optimización es: module.exports = { [...] optimization: { minimize: true, minimizer: [ new CssMinimizerPlugin(), new TerserPlugin() ] } }
+
+- EL plugin que nos ayuda a mover archivos a la carpeta de distribution es: CopyWebpack
+
+- Después de hacer un import de las imágenes, la debemos llamar "Como variables".
+
+- Se establece la configuración, loaders y plugins que usamos en Webpack en el archivo: webpack.config.js
+
+- Para conseguir que nuestro código de JavaScript sea compatible con todos los navegadores, lo hacemos "Integrando Babel a nuestro proyecto y babel-loader a la configuración de Webpack para archivos .js".
+
+- Los loaders y plugins en Webpack sirven para "Agregar funcionalidades o configuraciones para trabajar con nuestros recursos".
+
+- La propiedad que agregamos al archivo de configuración para indicarle a Webpack que trabajaremos en modo desarrollo es: mode: “development”
+
+- El comando "clean-webpack-plugin" nos ayuda a "limpiar nuestra carpeta del build cada vez que volvemos a transpilar el proyecto"
+
+- El comando para crear nuestro package.json es : npm init -y
+
+- La dependencia adicional que agregamos a nuestro proyecto para entender la sintaxis de React y JSX es: @babel/present-react
+
+- El comando para instalar Webpack Dev Server es: npm install webpack-dev-server --save-dev
+
+- El archivo en el que habilitamos el watch en nuestro proyecto es: webpack.config.js
+
+- Para instalar Webpack en tu proyecto como dependencia de desarrollo se hace con el comando: npm install webpack -D
+
+- Los repositorios con que te puedes conectar a Netlify son: GitHub, GitLab, Bitbucket y Azure DevOps
+
+- El falso que Netlify es la única plataforma en la que se puede desplegar un proyecto hecho con React.js.
+
+- Es falso que la propiedad template en nuestro plugin HTMLWebpackPlugin se refiere al archivo FINAL que se ejecuta como resultado de las configuraciones que le aplicamos al HTML de nuestro proyecto.
+
+- El script adecuado que nos permitirá habilitar nuestro proyecto en un entorno de desarrollo local y no de producción es: "start" : "webpack serve"
+
+- Los loaders necesarios para ejecutar nuestro proyecto de webpack con SASS son: style-loader, css-loader, sass-loader
+

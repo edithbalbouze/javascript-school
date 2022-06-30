@@ -325,6 +325,8 @@ Lo añadimos en la instancia de la dependencia que compila nuestro css
     }),
 Terminamos la configuracion y ahora compilamos webpack y podremos ver los archivos optimizados en dist/assets
 
+
+
 VIDEO 13
 MY NOTES FOR WEBPACK ALIAS 😄
 
