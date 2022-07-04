@@ -1,0 +1,46 @@
+{
+  "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "name": "curso-webpack-react",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/core": "^7.17.12",
+    "@babel/preset-env": "^7.17.12",
+    "@babel/preset-react": "^7.17.12",
+    "babel-loader": "^8.2.5",
+    "clean-plugin": "^1.0.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.1",
+    "css-minimizer-webpack-plugin": "^3.4.1",
+    "html-loader": "^3.1.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --config webpack.config.dev.js ",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platzi/curso-webpack-react.git"
+  },
+  "keywords": [],
+  "author": "Edith Balbouze <ebalbouze@medine.tech>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/platzi/curso-webpack-react/issues"
+  },
+  "homepage": "https://github.com/platzi/curso-webpack-react#readme"
+}

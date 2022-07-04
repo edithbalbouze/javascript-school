@@ -1,0 +1,109 @@
+Paquete que se encarga de manejar las fechas en JavaScript
+En la terminarl dentro de la carpeta raiz del proyecto ejecutamos lo siguiente:
+npm install moment --save-dev
+
+NOTA: --save esto significa que el documento que voy a instalar dentro del proyeto es necesario para vivir en produccion y -dev nos va a permitir establecer que el documento que se va a instalar solo es necesario en nuestra local o en el entorno de desarrollo. Es muy importante NO mandar denpencias a produccion ni omitir algunas que deban estar en produccion.
+
+a partir de las version 5 de npm por defecto se instala como una dependencia que es requerida 
+--save-dav es una dependecia de desarrollo
+
+ahora para instalar un paquete, es aquí donde tomamos la decisión de como lo vamos a ejecutar,
+
+ahora al momento que instalamos el primer paquete se nos creara una carpeta node_modules aqui se instalaran lo modulos que estamos agregando a nuestro proyecto y sera necesaria para que este funcione, pero no debe ser enviada a ningun repositorio ni a nuestro proyecto a produccion y por eso debemos ignorarla al nos mas se cree y para ello creamos un archivo .gitignore en la carpeta raiz y dentro de este escribimos node_modules/
+
+npm install <package> este por defecto se instala como una dependencia requerida para el proyecto es decir que el paquete que instalas es necesario para vivir en produccion esto tiene otras variantes como npm install <package> --save aqui la palabra save se tomara por defecto y no es necesario escribirla o npm install <package> --S como ejemplo instalaremos npm install moment para manejar fecha en javascript o con el shortcut npm install moment --S
+
+npm i <package> -D (este es con shortcut) o npm install <package> save-dev este flag nos va a permitir establecer que el paquete a instalar solo es necesario en nuestro entorno local o el entorno de desarrollo ejem: vamos a instalar una dependencia que maneja fecha y datos npm install date-fns save-dev
+
+npm install <package> -g instalar un paquete de forma global, esto nos permite que podamos utilizar este paquete en diferentes proyectos por lo general se deben instalar estos paquetes con permisos de administrador. Ejem. sudo npm install -g nodemon nos permite generar un demonio que va a estar siempre escuchando algun cambio o algun valor y nos va dejar mantener en nuestro proceso algun comando que estemos ejecutando de node
+
+npm list -g—depth 0 (depth es la profundidad que va a buscar dentro de los paquetes) ver los paquetes que están instalados de forma global
+
+npm list es para listar los paquetes que tienen un proyecto en especifico
+
+npm install <package> -O podemos instalar de forma opcional un paquete con este comando ejemplo instalaremos eslint para correcciones de codigo en JS npm install eslint -O y cuando finalizamos siempre nos un output de mensajes y tiempos de ejecucion en este ejemplo
+
+npm install <package> --dry-run (simula la instalación) este flag indica que el paquete no va a ser instalado dentro del proyecto simplemente es una simulación nada mas nos muestra el output como si fuere instalado, despues de esto nosotros decidimos si la instalamos o no ejemplo: npm install react --dry-run
+
+npm install <package> -f o npm install <package> --force instalar algún paquete de forma forzada y nos va a permitir instalar este paquete forzándola a que sea desde el ultimo recurso o version y desde el servidor de NPM EJEMPLO: npm install webpack -f si nos vamos al archivo package.json y vemos que el paquete se instalo en las dependencies pero estas deberieron estar en devdependencies podemos tomar el nombre de ese paquete cortarlo y pegarlo en el grupo que corresponda
+
+npm install si nosotros queremos volver a instalar todas las dependencias que están en el package.json
+
+npm install <package>@<version> para instalar algun paquete con una versión específica, esto puede ser necesario cuando tenemos que darle mantenimiento a una app con una version anterior de algun paquete o quizas las version actual es beta, etc. ejem: npm install json-server@0.15.0
+
+
+Para listar los paquetes que tiene el proyecto se ejecuta el siguiente comando --> npm list
+
+Actualizar paquetes hacia su ultima version, tenemos que ver los paquetes que estan desactualizados y eso lo hacemos con --> npm outdate .Para ver los output mas detallado que estan sucediendo atras de npm lo hacemos con el comando --> npm outdate --dd  y para actualizar los hacemos con el comando --> npm update.  y para actualizar un paquete en especificolo hacemos con npm install json-server@latest
+
+Desinstalar paquetes lo hacemos con el comando --> npm uninstall <el paquete a eliminar> lo elimina del node-modules y del package.json
+// Desinstalar sin eliminarlo del package.json se hace con el comando --> npm uninstall <paquete a eliminar> --no-save
+
+^ = Si mantenemos el caret dentro de la configuración de nuestro package estamos garantizando que cuando realicemos una actualización o tengamos un cambio que podamos realizar, vamos a hacer actualización de los cambios menores y de los parches o bug fixes.
+
+Para quedarnos en una sola versión eliminamos el caret.
+
+~ = Establece que vamos a recibir actualizaciones o cambios solamente de los cambios que son parches o bug fixes.
+
+
+Los scripts en npm son comando que podemos establecer para poder ejecutar desde la consola, dandonos unas serie de salidas segun sea el caso.
+"scripts":{
+    "build": "webpack --mode production",  se usa para mandar a produccion al proyecto
+    "start": "webpack-dev-server --open --mode development", se usa para generar 1 entorno de desarrollo local
+    "format": "prittier --write '{*.js,src/**/*.{js,jsx}}'" se usa para establecer cierto formato a los recursos que estan en el proyecto.
+    "lint": "eslint src/ --fix" se usa para pasar eslint al proyecto.
+}
+
+para poder activar la opción de verbose (es decir que nos muestre mayor información de lo que esta haciendo el comando)
+npm run [comando] --dd
+Cuando npm nos lance algún error es recomendable ir al archivo de logs que nos muestra
+
+Para eliminar el cache del sistema lo hacemos con el comando -> npm cache clean --force y luego -> npm cache verify
+
+
+Para eliminar carpetas se hace con el comando -> rimraf <Nombre de la carpeta>
+
+y se vuelve a instalar
+
+
+SEGURIDAD
+con el comando -> npm audit   nos permite auditar el proyecto y ver si hay cambios que puedan afectar nuestro proyecto
+
+Para hacer seguimiento de los detalles criticos de un paquete se hace con -> npm update <nombre del paquete> --depth 2
+
+Para corregir todos los errores lo hago con -> npm audit fix
+
+y corro nuevamente -> npm audit    para validar de que no haya errores o vulneravulidades
+
+
+
+
+* git init -> nos permite inicializar nuestros proyectos en git
+
+* npm init ->  nos permite inicializar nuestros proyectos con npm
+
+* El archivo 'package.json Contiene la información general del proyecto: scripts, dependencias y configuraciones de un proyecto.
+
+* npm set init.author.name ->  Se agregar el nombre del autor a la configuración por defecto de NPM
+
+* npm init -y -> Se usa para establecer la configuración por defecto para el archivo package.json
+
+* El flag --save -> sirve para instala y agrega la entrada a las dependencias del archivo package.json
+
+* El flag --save-optional o -O -> Se una para agregar el paquete que aparecerá en “optionalDependencies”.
+
+* npm install -g nodemon -> Se usa para identificar cuál es una instalación de una dependencia global.
+
+* npm list -g --depth 0 -> se usa para identificar las dependencias globales instaladas en nuestro sistema.
+
+* npm install json-server@latest -> nos sirve para instalar la versión más reciente de un paquete.
+
+* npm list -> Se usa para listar los paquetes y módulos instalados
+
+* npm start es igual a npm run start
+
+* npm run build --dd ->  Permite ver todo el output en la terminal/consola
+
+* npm publish -> Permite publicar un paquete en npmjs.com
+
+

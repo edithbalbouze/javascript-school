@@ -1,0 +1,157 @@
+VIDEO 14 TIPOS DE COMPONENTES EN REACT: STATEFUL vs. STATELESS
+
+Este es un ejemplo para useState, podemos darle un valor inicial, el cual puede ser cambiado por un evento que se puede asignar a este mismo componente, o a otros componentes y hasta pasarlo por medio de un hijo para que éste cambie el inicial.
+
+Para poder usar componentes stateful es necesario llamar useState desde React, la forma de importarlo y usarlo es la siguiente:
+
+Estructura de un componente StateFul
+
+import React, {useState} from "react";
+
+const Button = () => {
+    const [name, setName] = useState('Hola Mundo');
+    return (
+        <div>
+            <h1>{name}</h1>
+        </div>
+    );
+}
+
+
+
+Los componentes stateless servirán para pasar un estilo visual o props, pero no tendrá otra función más que esa.
+
+Este sería un componente sin estado, stateless o Componente de forma presentacional de la estructura.
+
+
+import React from "react";
+
+const Button = () => (
+    <div>
+        <h1>Hola Mundo</h1>
+    </div>
+);
+
+
+Si no tenemos el componente JSX directamente 
+
+pero si el componente que vamos a retornar componente pudemos usar este 
+
+import React from "react";
+
+const Button = ({ text }) => <ButtonRed text={text} />;
+
+
+COMPONENTES CLASES
+import React from "react";
+
+class App extends React.Component {
+    render() {
+        return(
+            <div>
+                <h1>Hello, world!</h1>
+            </div>
+        );
+    }
+} 
+
+o eliminar React y agregar component
+
+import React, {Component} from "react";
+
+class App extends Component {
+    render(){
+        return (
+            <div>
+                <h1>Hello, world!</h1>
+            </div>
+        );
+    }
+}
+
+Son la manera anterior a los React Hooks en la cual usábamos los componentes de React
+
+HOC (high order components)
+Reciben un componente, y los adaptan de otra manera para usarlos con “modificaciones”. Es como el patrón decorator. Suelen regresar un componente que modifica la lógica del componente anterior
+
+import React , { Component } from 'react';
+
+function ComponentWrapper(WrapperComponent) {
+	class Wrapper extends Component {
+        render () {
+            return <WrapperComponent {...this.props} />;
+        }
+    }
+
+    return Wrapper;
+}
+
+INTRODUCCION A REACT
+
+¿Qué es el estado en React.js?
+    El lugar donde almacenamos y actualizamos dinamicamente informacion de los usuarios y la aplicacion.
+
+¿Por qué React.js trabaja con el Virtual DOM?
+    Porque es una copia del DOM real con la que puedes hacer calculos y comparaciones mas rapido.
+
+¿Por qué React.js recomienda usar JSX?
+    Porque es una sintaxis que combina JavaScript con XML, agiliza nuestro desarrollo y mejora la legibilidad de nuestro codigo.
+
+Al desarrollar el frontend de una aplicación podemos aplicar el patrón MVC o Modelo, Vista, Controlador. ¿De cuál capa / letra se encarga React.js?
+    Vista
+
+
+CONFIGURANDO EL ENTORNO DE DESARROLLO PARA REACT
+
+Ya tienes tu loader de Babel instalado y conectado con Webpack. ¿Dónde defines los presets con los que vas a trabajar?
+    .babelrc
+
+¿Cuál es el archivo de configuración donde definimos los loaders con los que trabajaremos cada distinto tipo de archivo en nuestro proyecto?
+    webpack.config.js
+
+¿Cuál es el loader de Webpack necesario para trabajar con código JavaScript interpretado por Babel?
+    babel-loader
+
+¿Cuál es el comando correcto para trabajar con la versión 17 de React y React DOM.
+    npm install react@17 react-don@17 --save
+
+¿Cuál es el comando correcto para instalar la última versión de React y React DOM.
+    npm install react react.dom --save
+
+
+
+MAQUETACION EN REACT
+
+¿Qué cambios necesita el siguiente elemento HTML para funcionar correctamente con React.js y JSX?
+
+
+PAGINAS, RUTAS Y COMPONENTES
+
+¿Para qué sirven los alias en Webpack?
+    Para facilitar los imports cuando trabajamos con muchas carpetas (ej: pasar de ../../styles/archivos.css a @styles/archivo.css).
+
+¿Qué comando nos permite instalar la versión 5 de React Router DOM?
+    npm install react-router-dom@5 --save
+
+¿Qué comando nos permite instalar la última versión de React Router DOM?
+    npm install react-router-dom --save
+
+¿Qué herramienta nos permite agregar rutas y navegación a aplicaciones con React.js?
+    react-router-dom
+
+
+
+LOGICA CON REACT HOOKS
+
+¿Para qué sirve React Context?
+    Para compartir un estado general con todos los componentes de la aplicacion
+
+ Creaste un estado name utilizando React.useState. Necesitas que tu párrafo muestre ese nombre. Cada vez que ese estado cambie, tu párrafo debe cambiar también y mostrar el nuevo nombre. ¿Cómo lo harías?
+    {name}
+
+
+¿Cómo ejecutamos un console.log cuando los usuarios presionen un botón?
+    <button onClick={() => console.log('Eventos en React')}>Enviar</button>
+
+¿Cuál de las siguientes es una regla para crear Custom Hooks?
+    Que su nombre empiece con use (ej: useToggle, useCarrito)
